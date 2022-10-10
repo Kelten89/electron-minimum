@@ -1,21 +1,31 @@
 {
   "name": "my-electron-app",
   "version": "1.0.0",
-  "main": "src/main.js",
+  "description": ".",
+  "author": ".",
+  "main": "./build/index.js",
   "scripts": {
-    "start": "electron .",
-    "build": "electron-builder -mwl",
-    "release": "electron-builder --publish=always"
+    "pre-build": "tsc",
+    "watch": "tsc -w",
+    "lint": "eslint -c .eslintrc --ext .ts ./src",
+    "start": "yarn pre-build && electron ./build/index.js",
+    "build": "yarn pre-build && electron-builder",
+    "release": "yarn pre-build && electron-builder --publish=always"
   },
   "build": {
     "appId": "com.example.app",
     "productName": "ytimTest",
-    "target": "dmg"
+    "files": [
+      "build/**/*",
+      "package.json"
+    ]
   },
   "devDependencies": {
+    "@types/electron": "^1.6.10",
     "cross-env": "^7.0.3",
     "electron": "^21.1.0",
-    "electron-builder": "^23.6.0"
+    "electron-builder": "^23.6.0",
+    "typescript": "^4.8.4"
   },
   "dependencies": {
     "electron-is-dev": "^2.0.0"

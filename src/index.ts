@@ -1,8 +1,8 @@
 // main.js
 
 // Modules to control application life and create native browser window
-const { app, BrowserWindow, BrowserView } = require("electron");
-const path = require("path");
+import { app, BrowserWindow, BrowserView } from "electron";
+import * as path from "path";
 
 const createWindow = () => {
   // Create the browser window.
@@ -37,7 +37,8 @@ const createWindow = () => {
     height: contentBounds.height,
   });
   view.setAutoResize({ width: true, height: true });
-  view.webContents.loadURL("https://electronjs.org");
+  // view.webContents.loadURL("https://electronjs.org");
+  view.webContents.loadURL("http://www.naver.com");
 
   // 다른 창보다 항상 앞선다
   mainWindow.setAlwaysOnTop(true, "screen-saver");

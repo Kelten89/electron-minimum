@@ -85,6 +85,13 @@
   dependencies:
     "@types/ms" "*"
 
+"@types/electron@^1.6.10":
+  version "1.6.10"
+  resolved "https://registry.yarnpkg.com/@types/electron/-/electron-1.6.10.tgz#7e87888ed3888767cca68e92772c2c8ea46bc873"
+  integrity sha512-MOCVyzIwkBEloreoCVrTV108vSf8fFIJPsGruLCoAoBZdxtnJUqKA4lNonf/2u1twSjAspPEfmEheC+TLm/cMw==
+  dependencies:
+    electron "*"
+
 "@types/fs-extra@^9.0.11":
   version "9.0.13"
   resolved "https://registry.yarnpkg.com/@types/fs-extra/-/fs-extra-9.0.13.tgz#7594fbae04fe7f1918ce8b3d213f74ff44ac1f45"
@@ -678,7 +685,7 @@ electron-publish@23.6.0:
     lazy-val "^1.0.5"
     mime "^2.5.2"
 
-electron@^21.1.0:
+electron@*, electron@^21.1.0:
   version "21.1.0"
   resolved "https://registry.yarnpkg.com/electron/-/electron-21.1.0.tgz#7272dfe1a5d6a00fd58d17b26215e541b6ff10dd"
   integrity sha512-CM5VZpZPtAoPgTPcmEbRaZWXlxGuD5a5DTeAwm0F0F6/k6R3HZAi8vZnE77gwuHK/Qqcinw4/MAbiCwAKh2W+g==
@@ -1526,6 +1533,11 @@ type-fest@^0.13.1:
   version "0.13.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.13.1.tgz#0172cb5bce80b0bd542ea348db50c7e21834d934"
   integrity sha512-34R7HTnG0XIJcBSn5XhDd7nNFPRcXYRZrBB2O2jdKqYODldSzBAqzsWoZYYvduky73toYS/ESqxPvkDf/F0XMg==
+
+typescript@^4.8.4:
+  version "4.8.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.8.4.tgz#c464abca159669597be5f96b8943500b238e60e6"
+  integrity sha512-QCh+85mCy+h0IGff8r5XWzOVSbBO+KfeYrMQh7NJ58QujwcE22u+NUSmUxqF+un70P9GXKxa2HCNiTTMJknyjQ==
 
 universalify@^0.1.0:
   version "0.1.2"

@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "outDir": "./build",
+    "baseUrl": ".",
+    // "moduleResolution": "node",
+    // "sourceMap": true,
+    // "emitDecoratorMetadata": true,
+    // "experimentalDecorators": true,
+    "forceConsistentCasingInFileNames": true,
+    "removeComments": true,
+    "noImplicitAny": false
+  },
+  "exclude": ["node_modules"]
+}
+
