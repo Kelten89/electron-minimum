@@ -10,7 +10,8 @@
     // "experimentalDecorators": true,
     "forceConsistentCasingInFileNames": true,
     "removeComments": true,
-    "noImplicitAny": false
+    "noImplicitAny": false,
+    "esModuleInterop": true
   },
   "exclude": ["node_modules"]
 }

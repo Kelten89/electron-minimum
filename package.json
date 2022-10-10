@@ -5,12 +5,11 @@
   "author": ".",
   "main": "./build/index.js",
   "scripts": {
-    "pre-build": "tsc",
-    "watch": "tsc -w",
     "lint": "eslint -c .eslintrc --ext .ts ./src",
-    "start": "yarn pre-build && electron ./build/index.js",
-    "build": "yarn pre-build && electron-builder",
-    "release": "yarn pre-build && electron-builder --publish=always"
+    "start": "tsc && electron .",
+    "dev": "concurrently \"tsc -w\" \"nodemon --exec electron .\"",
+    "build": "tsc && electron-builder",
+    "release": "tsc && electron-builder --publish=always"
   },
   "build": {
     "appId": "com.example.app",
@@ -22,9 +21,11 @@
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
+    "concurrently": "^7.4.0",
     "cross-env": "^7.0.3",
     "electron": "^21.1.0",
     "electron-builder": "^23.6.0",
+    "nodemon": "^2.0.20",
     "typescript": "^4.8.4"
   },
   "dependencies": {

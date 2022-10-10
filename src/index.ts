@@ -1,5 +1,3 @@
-// main.js
-
 // Modules to control application life and create native browser window
 import { app, BrowserWindow, BrowserView } from "electron";
 import * as path from "path";
@@ -44,7 +42,7 @@ const createWindow = () => {
   mainWindow.setAlwaysOnTop(true, "screen-saver");
 
   // Open the DevTools.
-  // mainWindow.webContents.openDevTools()
+  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
