@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "v1.0.6",
+  "version": "1.0.1",
   "description": ".",
   "author": ".",
   "main": "./build/index.js",
@@ -17,14 +17,26 @@
   },
   "build": {
     "appId": "com.example.app",
+    "directories": {
+      "buildResources": "assets"
+    },
     "productName": "ytimTest",
     "files": [
       "build/**/*",
       "package.json"
     ],
+    "publish": {
+      "provider": "github"
+    },
     "win": {
-      "publish": [
-        "github"
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64",
+            "ia32"
+          ]
+        }
       ]
     },
     "nsis": {
