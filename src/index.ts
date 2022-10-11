@@ -5,8 +5,8 @@ import * as path from "path";
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 600,
+    height: 800,
     // icon: getAssetPath("icon.png"),
 
     // fullscreen: true,
@@ -35,14 +35,15 @@ const createWindow = () => {
     height: contentBounds.height,
   });
   view.setAutoResize({ width: true, height: true });
-  // view.webContents.loadURL("https://electronjs.org");
-  view.webContents.loadURL("http://www.naver.com");
+  view.webContents.loadURL("https://electronjs.org");
+  // view.webContents.loadURL("http://www.naver.com");
+  // view.webContents.loadURL("https://app.giftistar.net/home");
 
   // 다른 창보다 항상 앞선다
   mainWindow.setAlwaysOnTop(true, "screen-saver");
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
+  // mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished

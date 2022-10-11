@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "1.0.0",
+  "version": "v1.0.6",
   "description": ".",
   "author": ".",
   "main": "./build/index.js",
@@ -11,13 +11,29 @@
     "build": "tsc && electron-builder",
     "release": "tsc && electron-builder --publish=always"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kelten89/electron-minimum.git"
+  },
   "build": {
     "appId": "com.example.app",
     "productName": "ytimTest",
     "files": [
       "build/**/*",
       "package.json"
-    ]
+    ],
+    "win": {
+      "publish": [
+        "github"
+      ]
+    },
+    "nsis": {
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "deleteAppDataOnUninstall": true,
+      "shortcutName": "ytimShortcut",
+      "uninstallDisplayName": "ytimUninstall"
+    }
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
