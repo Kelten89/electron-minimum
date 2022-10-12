@@ -18,6 +18,13 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 
   document
+    .getElementsByClassName("sch_ico_aside")[0]
+    .addEventListener("click",  (e) => {
+      e.preventDefault();
+      ipcRenderer.invoke("print");
+    });
+
+  document
     .getElementsByClassName("shm_ico_npay")[0]
     .addEventListener("click", (e) => {
       e.preventDefault();

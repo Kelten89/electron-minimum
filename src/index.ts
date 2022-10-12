@@ -77,6 +77,12 @@ app.on("window-all-closed", () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
+ipcMain.handle("print", () => {
+  BrowserWindow.getAllWindows()[0]
+    .getBrowserViews()[0]
+    .webContents.print();
+});
+
 ipcMain.handle("quit-app", () => {
   app.quit();
 });
