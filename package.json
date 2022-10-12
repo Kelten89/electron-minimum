@@ -9,7 +9,7 @@
     "start": "tsc && electron .",
     "dev": "concurrently \"tsc -w\" \"nodemon --exec electron .\"",
     "build": "tsc && electron-builder",
-    "release": "tsc && electron-builder --publish=always"
+    "release": "tsc && electron-builder -w --publish=always"
   },
   "repository": {
     "type": "git",
