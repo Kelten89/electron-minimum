@@ -4,3 +4,11 @@
 // nodeIntegration is set to true in webPreferences.
 // Use preload.js to selectively enable features
 // needed in the renderer process.
+
+document.getElementById("btn_dev_tool").onclick = function () {
+    alert("btn_dev_tool");
+};
+
+document.getElementById("btn_back").onclick = function () {
+    alert("btn_back");
+};
