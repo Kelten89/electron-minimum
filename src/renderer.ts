@@ -5,12 +5,18 @@
 // Use preload.js to selectively enable features
 // needed in the renderer process.
 
+const electron = require(`electron`)
+
 document.getElementById("btn_dev_tool").onclick = function () {
-    alert(`btn_dev_tool`);
+    electron.ipcRenderer.send('open-developer-tool')
 };
 
 document.getElementById("btn_back").onclick = function () {
-    alert("btn_back");
+    electron.ipcRenderer.send('go-back')
+};
+
+document.getElementById("btn_quit").onclick = function () {
+    electron.ipcRenderer.send('quit-app')
 };
 
 document.getElementById("btn_danji").onclick = function () {

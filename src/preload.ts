@@ -21,7 +21,7 @@ window.addEventListener("DOMContentLoaded", () => {
     .getElementsByClassName("sch_ico_aside")[0]
     .addEventListener("click",  (e) => {
       e.preventDefault();
-      ipcRenderer.invoke("print");
+      ipcRenderer.invoke("show-setting");
     });
 
   document

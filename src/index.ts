@@ -29,7 +29,8 @@ const createWindow = () => {
   const view = new BrowserView({
     webPreferences: {
       devTools: true,
-      contextIsolation: true,
+      nodeIntegration:true,
+      contextIsolation: false,
       // preload: path.join(app.getAppPath(), "preload.js"),
       preload: path.join(__dirname, "preload.js"),
     },
@@ -43,8 +44,8 @@ const createWindow = () => {
   });
   view.setAutoResize({ width: true, height: true });
   // view.webContents.loadURL("https://electronjs.org");
-  // view.webContents.loadURL("http://m.naver.com");
-  view.webContents.loadFile('src/index.html');
+  view.webContents.loadURL("http://m.naver.com");
+  // view.webContents.loadFile('src/index.html');
   // view.webContents.loadURL("https://app.giftistar.net/home");
 
   // 다른 창보다 항상 앞선다
@@ -78,17 +79,23 @@ app.on("window-all-closed", () => {
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
 
-ipcMain.handle("print", () => {
+ipcMain.handle("show-setting", () => {
   BrowserWindow.getAllWindows()[0]
     .getBrowserViews()[0]
-    .webContents.print();
+    .webContents.loadFile('src/index.html')
 });
 
-ipcMain.handle("quit-app", () => {
+ipcMain.on("go-back", () => {
+  BrowserWindow.getAllWindows()[0]
+    .getBrowserViews()[0]
+    .webContents.goBack()
+});
+
+ipcMain.on("quit-app", () => {
   app.quit();
 });
 
-ipcMain.handle("open-developer-tool", () => {
+ipcMain.on("open-developer-tool", () => {
   BrowserWindow.getAllWindows()[0]
     .getBrowserViews()[0]
     .webContents.openDevTools();
