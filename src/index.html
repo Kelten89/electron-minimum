@@ -8,21 +8,29 @@
     <body>
         <div id="div_main">
             <div id="div_top">
-                <button class="btn_top" id="btn_dev_tool">개발자 툴</button>
-                <button class="btn_top" id="btn_back">돌아가기</button>
-                <button class="btn_top">프로그램 종료</button>
+                <div id="div_top_btn">
+                    <button class="btn_top" id="btn_dev_tool">개발자 툴</button>
+                    <button class="btn_top" id="btn_back">돌아가기</button>
+                    <button class="btn_top">프로그램 종료</button>
+                </div>
             </div>
             <div id="div_horizontal_line"></div>
-            <div id="div_menu">
-                <button class="btn_menu">단지 설정</button>
-                <button class="btn_menu">화면 사이즈 설정</button>
-                <button class="btn_menu">BE 옵션</button>
-                <button class="btn_menu">초기 URL 설정</button>
-                <button class="btn_menu">키오스크 동기화</button>
-                <button class="btn_menu">장비 점검</button>
+            <div id="div_nav_section">
+                <div id="div_menu">
+                    <button class="btn_menu" id="btn_danji">단지 설정</button>
+                    <button class="btn_menu" id="btn_screen_size">화면 사이즈 설정</button>
+                    <button class="btn_menu">BE 옵션</button>
+                    <button class="btn_menu">초기 URL 설정</button>
+                    <button class="btn_menu">키오스크 동기화</button>
+                    <button class="btn_menu">장비 점검</button>
+                </div>
+                <div id="div_contents">
+                    <iframe class="iframe_main" id="main_contents"></iframe>
+                </div>
             </div>
-            <div id="div_contents">좌측 메뉴 선택에 따라 보여질 내용 노출 구역</div>
         </div>
+
         <script src="../build/renderer.js"></script>
+
     </body>
 </html>
