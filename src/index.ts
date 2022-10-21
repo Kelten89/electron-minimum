@@ -67,19 +67,19 @@ autoUpdater.on('checking-for-update', () => {
 autoUpdater.on('update-available', (info) => {
   console.log('업데이트가 가능합니다.')
 
-  dialog
-    .showMessageBox({
-      type: "info",
-      title: "Update",
-      message:
-        "새로운 버전이 확인되었습니다. 설치 파일을 다운로드 하시겠습니까?",
-      buttons: ["지금 설치", "나중에 설치"]
-    })
-    .then(result => {
-      const { response } = result;
+  // dialog
+  //   .showMessageBox({
+  //     type: "info",
+  //     title: "Update",
+  //     message:
+  //       "새로운 버전이 확인되었습니다. 설치 파일을 다운로드 하시겠습니까?",
+  //     buttons: ["지금 설치", "나중에 설치"]
+  //   })
+  //   .then(result => {
+  //     const { response } = result;
 
-      if (response === 0) autoUpdater.downloadUpdate();
-    })
+  //     if (response === 0) autoUpdater.downloadUpdate();
+  //   })
 })
 autoUpdater.on('update-not-available', (info) => {
   console.log('현재 최신버전입니다.')
@@ -92,35 +92,41 @@ autoUpdater.on('download-progress', (progressObj) => {
   log_message = log_message + ' - 현재 ' + progressObj.percent + '%'
   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
   
-  progressBar = new ProgressBar({
-    text: "Download 합니다."
-  });
-
-  progressBar
-    .on("completed", () => {
-      console.log("설치 완료");
-    })
-    .on("aborted", () => {
-      console.log("aborted");
+  if(!progressBar) {
+    progressBar = new ProgressBar({
+      text: "Download 합니다."
     });
+  
+    progressBar
+      .on("completed", () => {
+        console.log("설치 완료");
+      })
+      .on("aborted", () => {
+        console.log("aborted");
+      });
+  }
 })
 autoUpdater.on('update-downloaded', (info) => {
   console.log('업데이트가 완료되었습니다.')
 
   progressBar.setCompleted();
+  progressBar.close();
 
-  dialog
-    .showMessageBox({
-      type: "info",
-      title: "Update",
-      message: "새로운 버전이 다운로드 되었습니다. 다시 시작하시겠습니까?",
-      buttons: ["예", "아니오"]
-    })
-    .then(result => {
-      const { response } = result;
+  // electron 종료 & 새 버전 설치 및 재실행
+  autoUpdater.quitAndInstall(false, true);
 
-      if (response === 0) autoUpdater.quitAndInstall(false, true);
-    });
+  // dialog
+  //   .showMessageBox({
+  //     type: "info",
+  //     title: "Update",
+  //     message: "새로운 버전이 다운로드 되었습니다. 다시 시작하시겠습니까?",
+  //     buttons: ["예", "아니오"]
+  //   })
+  //   .then(result => {
+  //     const { response } = result;
+
+  //     if (response === 0) autoUpdater.quitAndInstall(false, true);
+  //   });
 })
 
 // This method will be called when Electron has finished
