@@ -3,9 +3,12 @@ import { app, BrowserWindow, BrowserView, ipcMain, dialog } from "electron";
 import * as path from "path";
 
 const { autoUpdater } = require("electron-updater")
-const ProgressBar = require("electron-progressbar");
+const ProgressBar = require("electron-progressbar")
+const simpleUpdater = require("electron-simple-updater")
 
 let progressBar = null;
+
+simpleUpdater.init('https://github.com/Kelten89/electron-minimum/tree/aron_settings_view/src/update.json');
 
 const createWindow = () => {
   // Create the browser window.
