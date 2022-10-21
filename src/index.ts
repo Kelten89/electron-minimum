@@ -90,47 +90,47 @@ const createWindow = () => {
 // autoUpdater.on('error', (err) => {
 //   console.log('에러가 발생하였습니다. 에러내용 : ' + err)
 // })
-// autoUpdater.on('download-progress', (progressObj) => {
-//   let log_message = "다운로드 속도: " + progressObj.bytesPerSecond
-//   log_message = log_message + ' - 현재 ' + progressObj.percent + '%'
-//   log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
+simpleUpdater.on('update-downloading', (progressObj) => {
+  let log_message = "다운로드 속도: " + progressObj.bytesPerSecond
+  log_message = log_message + ' - 현재 ' + progressObj.percent + '%'
+  log_message = log_message + ' (' + progressObj.transferred + "/" + progressObj.total + ')'
   
-//   if(!progressBar) {
-//     progressBar = new ProgressBar({
-//       text: "Download 합니다."
-//     });
+  if(!progressBar) {
+    progressBar = new ProgressBar({
+      text: "Download 합니다."
+    });
   
-//     progressBar
-//       .on("completed", () => {
-//         console.log("설치 완료");
-//       })
-//       .on("aborted", () => {
-//         console.log("aborted");
-//       });
-//   }
-// })
-// autoUpdater.on('update-downloaded', (info) => {
-//   console.log('업데이트가 완료되었습니다.')
+    progressBar
+      .on("completed", () => {
+        console.log("설치 완료");
+      })
+      .on("aborted", () => {
+        console.log("aborted");
+      });
+  }
+})
+simpleUpdater.on('update-downloaded', (info) => {
+  console.log('업데이트가 완료되었습니다.')
 
-//   progressBar.setCompleted();
-//   progressBar.close();
+  progressBar.setCompleted();
+  progressBar.close();
 
-//   // electron 종료 & 새 버전 설치 및 재실행
-//   autoUpdater.quitAndInstall(false, true);
+  // electron 종료 & 새 버전 설치 및 재실행
+  simpleUpdater.quitAndInstall(false, true);
 
-//   // dialog
-//   //   .showMessageBox({
-//   //     type: "info",
-//   //     title: "Update",
-//   //     message: "새로운 버전이 다운로드 되었습니다. 다시 시작하시겠습니까?",
-//   //     buttons: ["예", "아니오"]
-//   //   })
-//   //   .then(result => {
-//   //     const { response } = result;
+  // dialog
+  //   .showMessageBox({
+  //     type: "info",
+  //     title: "Update",
+  //     message: "새로운 버전이 다운로드 되었습니다. 다시 시작하시겠습니까?",
+  //     buttons: ["예", "아니오"]
+  //   })
+  //   .then(result => {
+  //     const { response } = result;
 
-//   //     if (response === 0) autoUpdater.quitAndInstall(false, true);
-//   //   });
-// })
+  //     if (response === 0) autoUpdater.quitAndInstall(false, true);
+  //   });
+})
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
@@ -139,6 +139,7 @@ app.whenReady().then(() => {
   createWindow();
 
   //autoUpdater.checkForUpdates()
+  simpleUpdater.checkForUpdates()
 
   app.on("activate", () => {
     // On macOS it's common to re-create a window in the app when the
