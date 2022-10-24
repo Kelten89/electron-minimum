@@ -8,7 +8,7 @@ const simpleUpdater = require("electron-simple-updater")
 
 let progressBar = null;
 
-simpleUpdater.init('https://github.com/Kelten89/electron-minimum/blob/aron_settings_view/src/update.json');
+simpleUpdater.init()
 
 const createWindow = () => {
   // Create the browser window.
