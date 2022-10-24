@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "0.0.8",
+  "version": "0.0.1",
   "description": ".",
   "author": ".",
   "main": "./build/index.js",
@@ -29,15 +29,7 @@
       "provider": "github"
     },
     "win": {
-      "target": [
-        {
-          "target": "nsis",
-          "arch": [
-            "x64",
-            "ia32"
-          ]
-        }
-      ]
+      "target": "squirrel"
     },
     "nsis": {
       "createDesktopShortcut": true,
