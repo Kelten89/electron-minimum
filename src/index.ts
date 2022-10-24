@@ -52,8 +52,8 @@ const createWindow = () => {
   });
   view.setAutoResize({ width: true, height: true });
   // view.webContents.loadURL("https://electronjs.org");
-  view.webContents.loadURL("http://m.naver.com");
-  // view.webContents.loadURL("http://news.naver.com");
+  // view.webContents.loadURL("http://m.naver.com");
+  view.webContents.loadURL("http://news.naver.com");
   // view.webContents.loadFile('src/index.html');
   // view.webContents.loadURL("https://app.giftistar.net/home");
 
