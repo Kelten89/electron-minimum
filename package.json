@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": ".",
   "author": ".",
   "main": "./build/index.js",
@@ -31,9 +31,6 @@
     "win": {
       "target": "squirrel"
     },
-    "updater": {
-      "url": "https://github.com/Kelten89/electron-minimum/blob/aron_settings_view/src/update.json"
-    },
     "nsis": {
       "createDesktopShortcut": true,
       "createStartMenuShortcut": true,
@@ -42,12 +39,15 @@
       "uninstallDisplayName": "ytimUninstall"
     }
   },
+  "updater": {
+    "url": "https://github.com/Kelten89/electron-minimum/blob/aron_settings_view/src/update.json"
+  },
   "devDependencies": {
     "@types/electron": "^1.6.10",
-    "concurrently": "^7.4.0",
-    "cross-env": "^7.0.3",
     "electron": "^20.3.3",
     "electron-builder": "^23.6.0",
+    "concurrently": "^7.4.0",
+    "cross-env": "^7.0.3",
     "nodemon": "^2.0.20",
     "typescript": "^4.8.4"
   },
