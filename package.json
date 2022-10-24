@@ -1,6 +1,6 @@
 {
   "name": "my-electron-app",
-  "version": "0.0.2",
+  "version": "0.0.1",
   "description": ".",
   "author": ".",
   "main": "./build/index.js",
@@ -40,7 +40,7 @@
     }
   },
   "updater": {
-    "url": "https://github.com/Kelten89/electron-minimum/blob/aron_settings_view/src/update.json"
+    "url": "https://raw.githubusercontent.com/Kelten89/electron-minimum/aron_settings_view/src/update.json"
   },
   "devDependencies": {
     "@types/electron": "^1.6.10",
