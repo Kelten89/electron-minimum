@@ -6,6 +6,7 @@ const { autoUpdater } = require("electron-updater")
 const ProgressBar = require("electron-progressbar");
 
 let progressBar = null;
+let isUpdateCheckPossible = true
 
 const createWindow = () => {
   // Create the browser window.
@@ -67,6 +68,7 @@ autoUpdater.on('checking-for-update', () => {
 autoUpdater.on('update-available', (info) => {
   console.log('업데이트가 가능합니다.')
 
+  isUpdateCheckPossible = false
   // dialog
   //   .showMessageBox({
   //     type: "info",
@@ -108,6 +110,7 @@ autoUpdater.on('download-progress', (progressObj) => {
 })
 autoUpdater.on('update-downloaded', (info) => {
   console.log('업데이트가 완료되었습니다.')
+  isUpdateCheckPossible = true
 
   progressBar.setCompleted();
   progressBar.close();
@@ -135,7 +138,12 @@ autoUpdater.on('update-downloaded', (info) => {
 app.whenReady().then(() => {
   createWindow();
 
-  autoUpdater.checkForUpdates()
+  setInterval(()=> {
+    if(isUpdateCheckPossible) {
+      autoUpdater.checkForUpdates()
+      console.log("autoUpdater.checkForUpdates()")
+    }
+  }, 10000)
 
   app.on("activate", () => {
     // On macOS it's common to re-create a window in the app when the
